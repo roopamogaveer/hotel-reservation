@@ -2,9 +2,9 @@
 ### User Registration : POST - http://127.0.0.1:8000/user/signup/
 body :
          {
-            "username" : "roopa",
-            "email" : "roopa@gmail.com",
-            "password" : "123123123"
+         "username" : "roopa",
+         "email" : "roopa@gmail.com",
+         "password" : "123123123"
          }
     
 ### User Login : POST - http://127.0.0.1:8000/user/login/
