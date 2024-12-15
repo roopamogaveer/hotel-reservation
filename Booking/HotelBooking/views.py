@@ -38,10 +38,11 @@ class AllReservationView(APIView):
 class ReservationbyUserIdView(APIView):
     def get(self, request, user):
         try:
-            reservation = Reservation.objects.filter(user=user)
-            if reservation is not None:
-                result = ReservationSerializer(reservation, many=True)
-                return Response(data=result.data, status=status.HTTP_200_OK)
+            if Reservation.objects.filter(user=user).exists():
+                reservation = Reservation.objects.filter(user=user)
+                if reservation is not None:
+                    result = ReservationSerializer(reservation, many=True)
+                    return Response(data=result.data, status=status.HTTP_200_OK)
             else:
                 message = "User doesn't Exist!"
                 return Response(message, status=status.HTTP_404_NOT_FOUND)
